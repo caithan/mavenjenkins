@@ -1,41 +1,8 @@
-pipeline 
+node('master') 
 {
-    agent any
-
-    stages 
-    {
-        stage('Build') 
-        {
-            steps 
-            {
-                echo 'Build App'
-            }
-        }
-
-        stage('Test') 
-        {
-            steps 
-            {
-                echo 'Test App'
-            }
-        }
-
-        stage('Deploy') 
-        {
-            steps 
-            {
-                echo 'Deploy App'
-            }
-        }
-    }
-
-    post
-    {
-
-    	always
-    	{
-    		emailext body: 'Summary', subject: 'Pipeline Status', to: 'selenium3bymukesh@gmail.com'
-    	}
-
-    }
+    stage('continous download') 
+{
+   git credentialsId: '68866377-de52-4caa-81ef-14e13dd5a5f6', url: 'https://github.com/caithan/mavenjenkins.git'
+}  
+    
 }
