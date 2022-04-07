@@ -6,6 +6,6 @@ node('master')
 }  
     stage('continous build')
      {
-     sh 'mvn package'
+     sh 'mvn clean install'
       }
 }
